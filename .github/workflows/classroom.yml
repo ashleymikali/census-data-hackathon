@@ -13,10 +13,10 @@ jobs:
           TOKEN: ${{ secrets.PRIVATE_REPO_PAT }}
         run: |
           curl -H "Authorization: token $TOKEN" \
-            -L "https://raw.githubusercontent.com/mat427sp25/hack-a-thon-testlabels-private/main/census_test_answers.csv" \
+            -L "https://github.com/mat427sp25/hack-a-thon-testlabels/blob/main/census_test_answers.csv" \
             -o hidden_test_set.csv
           curl -H "Authorization: token $TOKEN" \
-            -L "https://raw.githubusercontent.com/mat427sp25/hack-a-thon-testlabels-private/main/evaluate.py" \
+            -L "https://github.com/mat427sp25/hack-a-thon-testlabels/blob/main/evaluate.py" \
             -o evaluate.py
 
       - name: Score predictions
