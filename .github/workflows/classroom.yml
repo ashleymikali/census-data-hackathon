@@ -9,9 +9,15 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Download hidden test set and evaluation script
+        env:
+          TOKEN: ${{ secrets.PRIVATE_REPO_PAT }}
         run: |
-          wget https://github.com/mat427sp25/hack-a-thon-testlabels/raw/main/census_test_answers.csv -O hidden_test_set.csv
-          wget https://github.com/mat427sp25/hack-a-thon-testlabels/raw/main/evaluate.py -O evaluate.py
+          curl -H "Authorization: token $TOKEN" \
+            -L "https://raw.githubusercontent.com/mat427sp25/hack-a-thon-testlabels-private/main/census_test_answers.csv" \
+            -o hidden_test_set.csv
+          curl -H "Authorization: token $TOKEN" \
+            -L "https://raw.githubusercontent.com/mat427sp25/hack-a-thon-testlabels-private/main/evaluate.py" \
+            -o evaluate.py
 
       - name: Score predictions
         run: python evaluate.py my_predictions.csv hidden_test_set.csv
