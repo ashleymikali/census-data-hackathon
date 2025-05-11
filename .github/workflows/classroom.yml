@@ -16,7 +16,7 @@ jobs:
             -L "https://raw.githubusercontent.com/mat427sp25/hack-a-thon-testlabels/refs/heads/main/census_test_answers.csv" \
             -o hidden_test_set.csv
           curl -H "Authorization: token $TOKEN" \
-            -L https://raw.githubusercontent.com/mat427sp25/hack-a-thon-testlabels/refs/heads/main/evaluate.py" \
+            -L "https://raw.githubusercontent.com/mat427sp25/hack-a-thon-testlabels/refs/heads/main/evaluate.py" \
             -o evaluate.py
 
       - name: Score predictions
