@@ -1,6 +1,6 @@
 - name: Download hidden test set and evaluation script
   run: |
-    wgethttps://github.com/mat427sp25/hack-a-thon-testlabels/blob/main/census_test_answers.csv -O hidden_test_set.csv
+    wget https://github.com/mat427sp25/hack-a-thon-testlabels/blob/main/census_test_answers.csv -O hidden_test_set.csv
     wget https://github.com/mat427sp25/hack-a-thon-testlabels/blob/main/evaluate.py -O evaluate.py
 
 - name: Score predictions
