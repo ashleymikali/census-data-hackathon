@@ -1,7 +1,17 @@
-- name: Download hidden test set and evaluation script
-  run: |
-    wget https://github.com/mat427sp25/hack-a-thon-testlabels/blob/main/census_test_answers.csv -O hidden_test_set.csv
-    wget https://github.com/mat427sp25/hack-a-thon-testlabels/blob/main/evaluate.py -O evaluate.py
+name: Autograding
 
-- name: Score predictions
-  run: python evaluate.py my_predictions.csv hidden-test_set.csv
+on: [push]
+
+jobs:
+  autograde:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download hidden test set and evaluation script
+        run: |
+          wget https://github.com/mat427sp25/hack-a-thon-testlabels/raw/main/census_test_answers.csv -O hidden_test_set.csv
+          wget https://github.com/mat427sp25/hack-a-thon-testlabels/raw/main/evaluate.py -O evaluate.py
+
+      - name: Score predictions
+        run: python evaluate.py my_predictions.csv hidden_test_set.csv
