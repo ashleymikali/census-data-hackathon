@@ -27,6 +27,9 @@ jobs:
       
       - name: Install dependencies
         run: python -m pip install pandas
+
+      - name: Debug step
+        run: cat evaluate.py
           
       - name: Score predictions
         run: python evaluate.py my_predictions.csv hidden_test_set.csv
