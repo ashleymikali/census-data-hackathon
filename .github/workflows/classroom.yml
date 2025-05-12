@@ -12,6 +12,7 @@ jobs:
       - name: Download hidden test set and evaluation script
         env:
           TOKEN: ${{ secrets.PRIVATE_REPO_PAT }}
+        working-directory: ${{ github.workspace }}
         run: |
           curl -H "Authorization: token $TOKEN" \
             -L "https://raw.githubusercontent.com/mat427sp25/hack-a-thon-testlabels/refs/heads/main/census_test_answers.csv" \
@@ -19,6 +20,11 @@ jobs:
           curl -H "Authorization: token $TOKEN" \
             -L "https://raw.githubusercontent.com/mat427sp25/hack-a-thon-testlabels/refs/heads/main/evaluate.py" \
             -o evaluate.py
+
+      - name: Verify file existence
+        run: |
+          ls -la
+          test -f evaluate.py || (echo "File missing!" && exit 1)
       
       - name: Set up Python
         uses: actions/setup-python@v5
