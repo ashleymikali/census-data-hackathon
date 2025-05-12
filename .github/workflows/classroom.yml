@@ -33,6 +33,7 @@ jobs:
           ls -la
           test -f evaluate.py || (echo "File missing!" && exit 1)
           cat evaluate.py
+          cat hidden_test_set.csv
           
       - name: Score predictions
         working-directory: ${{ github.workspace }}
