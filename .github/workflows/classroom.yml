@@ -32,12 +32,7 @@ jobs:
         run: |
           ls -la
           test -f evaluate.py || (echo "File missing!" && exit 1)
-      
-      
-
-      - name: Debug step
-        working-directory: ${{ github.workspace }}
-        run: cat evaluate.py
+          cat evaluate.py
           
       - name: Score predictions
         working-directory: ${{ github.workspace }}
