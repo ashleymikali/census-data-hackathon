@@ -36,7 +36,9 @@ jobs:
       
 
       - name: Debug step
+        working-directory: ${{ github.workspace }}
         run: cat evaluate.py
           
       - name: Score predictions
+        working-directory: ${{ github.workspace }}
         run: python evaluate.py my_predictions.csv hidden_test_set.csv
