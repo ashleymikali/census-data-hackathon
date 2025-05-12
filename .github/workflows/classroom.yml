@@ -22,11 +22,13 @@ jobs:
         working-directory: ${{ github.workspace }}
         run: |
           curl -H "Authorization: token $TOKEN" \
-            -L "https://raw.githubusercontent.com/mat427sp25/hack-a-thon-testlabels/refs/heads/main/census_test_answers.csv" \
-            -o hidden_test_set.csv
-          curl -H "Authorization: token $TOKEN" \
-            -L "https://raw.githubusercontent.com/mat427sp25/hack-a-thon-testlabels/refs/heads/main/evaluate.py" \
+            -H "Accept: application/vnd.github.v3.raw" \
+            -L "https://api.github.com/repos/mat427sp25/hack-a-thon-testlabels/contents/evaluate.py?ref=main" \
             -o evaluate.py
+          curl -H "Authorization: token $TOKEN" \
+            -H "Accept: application/vnd.github.v3.raw" \
+            -L "https://api.github.com/repos/mat427sp25/hack-a-thon-testlabels/contents/census_test_answers.csv?ref=main" \
+            -o hidden_test_set.csvpy
 
       - name: Verify file existence
         run: |
