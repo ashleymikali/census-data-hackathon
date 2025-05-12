@@ -28,7 +28,7 @@ jobs:
           curl -H "Authorization: token $TOKEN" \
             -H "Accept: application/vnd.github.v3.raw" \
             -L "https://api.github.com/repos/mat427sp25/hack-a-thon-testlabels/contents/census_test_answers.csv?ref=main" \
-            -o hidden_test_set.csvpy
+            -o hidden_test_set.csv
 
       - name: Verify file existence
         run: |
