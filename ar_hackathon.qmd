@@ -2,6 +2,7 @@
 title: "Predicting US Census Data with XGBoost"
 author: "Ashley Russell"
 description: "Using US Census data to predict whether or not someone has an annual income of more than $50,000."
+image: ar_hackathon_files/figure-html/age-hours-boxplot-1.png
 categories:
   - R
   - Exploratory Data Analysis
@@ -391,6 +392,10 @@ write.csv(prediction_vector, "my_predictions.csv", row.names = FALSE)
 # Final Thoughts
 
 I don't know :').
+
+## Update
+
+I came third (out of 15 people)!!! My accuracy was 86.6%. I will be returning to this in the near future because I am curious about pairing my stepwise BIC model WITH XGBoost and seeing what those results would be.
 
 ## Limitations
 
